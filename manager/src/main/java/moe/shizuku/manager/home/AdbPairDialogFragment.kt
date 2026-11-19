@@ -36,6 +36,9 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -70,6 +73,13 @@ fun AdbPairDialog(
     var portError by remember { mutableStateOf<String?>(null) }
     var pairingCodeError by remember { mutableStateOf<String?>(null) }
     var isPairing by remember { mutableStateOf(false) }
+
+    val focusRequester = remember { FocusRequester() }
+    LaunchedEffect(discoveredPort) {
+        if (discoveredPort in 1..65535) {
+            focusRequester.requestFocus()
+        }
+    }
 
     DisposableEffect(inPairingWindow) {
         if (!inPairingWindow) return@DisposableEffect onDispose {}
@@ -138,7 +148,9 @@ fun AdbPairDialog(
                             pairingCode = it.filter(Char::isDigit).take(6)
                             pairingCodeError = null
                         },
-                        modifier = Modifier.fillMaxWidth(),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .focusRequester(focusRequester),
                         label = { Text(stringResource(R.string.dialog_adb_pairing_paring_code)) },
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                         singleLine = true,

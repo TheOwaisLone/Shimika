@@ -33,7 +33,7 @@ def rustJniLibsDir = file("$buildDir/intermediates/rustJniLibs")
 android {
     namespace 'moe.shizuku.manager'
     defaultConfig {
-        applicationId "com.hamondev.shevery"
+        applicationId "com.owais.shimika"
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
     }

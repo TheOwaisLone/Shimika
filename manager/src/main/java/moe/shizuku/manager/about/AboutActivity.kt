@@ -291,20 +291,29 @@ class AboutActivity : AppActivity() {
     @Composable
     private fun AboutLinksGroup() {
         val context = this@AboutActivity
-        SettingsGroup(title = "Resources & Community") {
+        SettingsGroup(title = "Maintainers & Credits") {
+            SettingsRow(
+                icon = R.drawable.ic_system_icon,
+                title = "Owais Lone",
+                summary = "Lead Android TV Developer & Port Maintainer (github.com/TheOwaisLone/Shimika)",
+                onClick = {
+                    CustomTabsHelper.launchUrlOrCopy(context, "https://github.com/TheOwaisLone/Shimika")
+                }
+            )
+            GroupDivider()
             SettingsRow(
                 icon = R.drawable.ic_baseline_link_24,
-                title = stringResource(R.string.about_source_code_button),
-                summary = "github.com/HmnDev-Tech/shevery",
+                title = "HmnDev-Tech",
+                summary = "Original Creator & Upstream Developer of Shevery (github.com/HmnDev-Tech/shevery)",
                 onClick = {
                     CustomTabsHelper.launchUrlOrCopy(context, "https://github.com/HmnDev-Tech/shevery")
-               }
+                }
             )
             GroupDivider()
             SettingsRow(
                 icon = R.drawable.ic_outline_info_24,
                 title = "Channel",
-                summary = "Join the community channel",
+                summary = "Join the upstream community channel",
                 onClick = {
                     CustomTabsHelper.launchUrlOrCopy(context, "https://t.me/hmndevtech")
                 }

@@ -1,19 +1,37 @@
-# Shevery
+# Shimika (Android TV Port)
 
 <div align="center">
 
-[![Stars](https://img.shields.io/github/stars/HmnDev-Tech/shevery?style=for-the-badge&color=yellow)](https://github.com/HmnDev-Tech/shevery/stargazers) [![Forks](https://img.shields.io/github/forks/HmnDev-Tech/shevery?style=for-the-badge&color=orange)](https://github.com/HmnDev-Tech/shevery/network/members) [![Downloads](https://img.shields.io/github/downloads/HmnDev-Tech/shevery/total?style=for-the-badge&color=green)](https://github.com/HmnDev-Tech/shevery/releases) [![Build Android APK](https://img.shields.io/github/actions/workflow/status/HmnDev-Tech/shevery/apk-build.yml?branch=main&style=for-the-badge&label=build)](https://github.com/HmnDev-Tech/shevery/actions/workflows/apk-build.yml) [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/hmndevtech)
+[![Repository](https://img.shields.io/badge/GitHub-TheOwaisLone%2FShimika-blue?style=for-the-badge&logo=github)](https://github.com/TheOwaisLone/Shimika)
+[![Platform](https://img.shields.io/badge/Platform-Android%20TV%20%7C%20Google%20TV-green?style=for-the-badge&logo=android)](https://github.com/TheOwaisLone/Shimika)
+[![License](https://img.shields.io/badge/License-Apache%202.0-yellow.svg?style=for-the-badge)](LICENSE)
 
 </div>
 
+**Shimika** is a dedicated Android TV / Google TV port of Shevery, redesigned for 10-foot television screens, full D-pad remote navigation, and wireless ADB authorization without requiring a touch screen or physical mouse.
 
-[English](README.md) | [Русский](README.ru.md) | [Қазақша](README.kk.md) | [Qazaqşa (Latın)](README.kk-Latn.md) | [Português](README.pt.md) | [Español](README.es.md) | [العربية](README.ar.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
+### Maintainers & Credits
 
-## Fork status
+- **Owais Lone** — Lead Android TV Developer & Port Maintainer ([GitHub](https://github.com/TheOwaisLone) | [Repository](https://github.com/TheOwaisLone/Shimika))
+- **HmnDev-Tech** — Original Creator & Upstream Developer of [Shevery](https://github.com/HmnDev-Tech/shevery)
+- **RikkaApps / Shizuku Team** — Shizuku API & original architecture
+
+---
+
+## Android TV Features & Remote Controls
+
+- **10-Foot UI Experience**: Landscape-first layout with high-contrast glowing focus indicators, animated card scales (1.03x-1.05x), and TV safe margins.
+- **Full D-pad Navigation**: Every button, card, switch, tab, and dialog is accessible using a standard TV remote (Up, Down, Left, Right, Center/Enter, Back).
+- **Remote-Friendly Wireless ADB Pairing**: Pairing dialog automatically requests focus on the 6-digit pairing code field upon opening.
+- **Application ID**: `com.owais.shimika` (allows side-by-side coexistence with upstream Shizuku and Shevery).
+
+---
+
+## Upstream Fork Status & Features
 
 > [!IMPORTANT]
-> **Side-by-Side Installation Supported:** Thanks to its independent package ID (`com.hamondev.shevery`) and isolated permission namespace, you **can now install Shevery directly alongside other Shizuku implementations** without uninstalling them first. For legacy apps that explicitly check for `moe.shizuku.privileged.api`, you can optionally enable Compatibility Stubs in Settings once original Shizuku is removed.
-> Upstream project reference: <https://github.com/RikkaApps/Shizuku>
+> **Side-by-Side Installation Supported:** Thanks to its independent package ID (`com.owais.shimika`) and isolated permission namespace, you can install Shimika directly alongside other implementations.
+> Upstream project reference: <https://github.com/HmnDev-Tech/shevery> and <https://github.com/RikkaApps/Shizuku>
 
 ## Fork additions
 
