@@ -77,3 +77,14 @@ echo ""
 echo "=============================================================================="
 echo " [SUCCESS] All permissions and background allowances configured for Shimika!"
 echo "=============================================================================="
+
+echo "[+] Starting Shimika server via ADB..."
+LIB_DIR=$($ADB_CMD shell pm path "$PACKAGE" | head -n1 | sed -E 's/package:(.*)\/base\.apk/\1\/lib\/arm64/')
+if ! $ADB_CMD shell ls "$LIB_DIR/libshizuku.so" >/dev/null 2>&1; then
+    LIB_DIR=$($ADB_CMD shell pm path "$PACKAGE" | head -n1 | sed -E 's/package:(.*)\/base\.apk/\1\/lib\/arm/')
+fi
+APK_PATH=$($ADB_CMD shell pm path "$PACKAGE" | head -n1 | sed 's/package://')
+
+if [ -n "$LIB_DIR" ] && [ -n "$APK_PATH" ]; then
+    $ADB_CMD shell "$LIB_DIR/libshizuku.so --apk=$APK_PATH" 2>/dev/null || true
+fi
