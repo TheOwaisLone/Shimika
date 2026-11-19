@@ -35,6 +35,38 @@
 
 ---
 
+## Quick Setup: Granting All Permissions (ADB)
+
+To ensure Shimika runs in the background and can manage privileges and services without being killed by Android TV's aggressive memory management, we provide a one-click setup script [`grant_shimika.sh`](grant_shimika.sh).
+
+### 1. Connect via ADB
+Enable **Developer Options** and **Wireless Debugging** (or USB debugging) on your Android TV / Google TV. Then connect from your computer:
+```bash
+adb connect <TV_IP_ADDRESS>:<PORT>
+# Example: adb connect 192.168.31.38:35605
+```
+
+### 2. Run the Permission Script
+Make the script executable and run it:
+```bash
+chmod +x grant_shimika.sh
+
+# If only one device is connected:
+./grant_shimika.sh
+
+# Or specify your TV's address explicitly:
+./grant_shimika.sh <TV_IP_ADDRESS>:<PORT>
+```
+
+### What this grants:
+- **Notifications & Overlay**: `POST_NOTIFICATIONS`, `SYSTEM_ALERT_WINDOW`
+- **System Settings**: `WRITE_SECURE_SETTINGS`, `PACKAGE_USAGE_STATS`, `DUMP`
+- **Wi-Fi & Network Discovery**: `NEARBY_WIFI_DEVICES`, `CHANGE_WIFI_MULTICAST_STATE`
+- **Background Execution**: Whitelists Shimika from Android Doze / Battery Optimization (`deviceidle whitelist`), and grants `RUN_IN_BACKGROUND` and `WAKE_LOCK`.
+- **Privileged APIs**: `PRIVILEGED_API` and `com.rosan.dhizuku.permission.API`.
+
+---
+
 ## Upstream Fork Status & Inherited Features
 
 > [!IMPORTANT]
