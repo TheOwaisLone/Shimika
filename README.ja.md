@@ -1,11 +1,11 @@
-# Shevery
+# Shimika (Android TV Port)
 
 [English](README.md) | [Русский](README.ru.md) | [Қазақша](README.kk.md) | [Qazaqşa (Latın)](README.kk-Latn.md) | [Português](README.pt.md) | [Español](README.es.md) | [العربية](README.ar.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md)
 
 ## フォークの状況
 
 > [!IMPORTANT]
-> **移行作業が必要です：** アプリ識別子が moe.shizuku.privileged.api から **com.hamondev.shevery** に変更されたため、Shevery をインストールする前に、端末にある旧バージョンの公式 Shizuku Manager アプリを**必ずアンインストールしてください**。アンインストールしない場合、両者が競合します。
+> **移行作業が必要です：** アプリ識別子が moe.shizuku.privileged.api から **com.owais.shimika** に変更されたため、Shimika をインストールする前に、端末にある旧バージョンの公式 Shizuku Manager アプリを**必ずアンインストールしてください**。アンインストールしない場合、両者が競合します。
 上流プロジェクト：<https://github.com/RikkaApps/Shizuku>
 >
 
@@ -62,7 +62,7 @@ Shizuku はまったく異なる方法を採用しています。詳しくは以
   </table>
 </details>
 
-## Shevery の仕組み
+## Shimika (Android TV Port) の仕組み
 
 まず、アプリがシステム API をどのように利用するかを説明します。たとえば、アプリがインストール済みのアプリを取得したい場合、`PackageManager#getInstalledPackages()` を使用すべきことはよく知られています。これは実際には、アプリプロセスとシステムサーバープロセス間のプロセス間通信（IPC）であり、Android フレームワークが内部処理を代行しています。
 
@@ -72,7 +72,7 @@ Android はこの種の IPC に `binder` を使用します。`Binder` により
 
 Shizuku は、ユーザーに root または ADB を使って Shizuku サーバーというプロセスを最初に実行するよう案内します。アプリの起動時には、Shizuku サーバーへの `binder` もアプリに送信されます。
 
-Shevery が提供する最も重要な機能は、仲介役のように動作することです。アプリからリクエストを受け取り、それをシステムサーバーに送り、結果を返します。詳しくは、`rikka.shizuku.server.ShizukuService` クラスの `transactRemote` メソッドと、`moe.shizuku.api.ShizukuBinderWrapper` クラスを参照してください。
+Shimika が提供する最も重要な機能は、仲介役のように動作することです。アプリからリクエストを受け取り、それをシステムサーバーに送り、結果を返します。詳しくは、`rikka.shizuku.server.ShizukuService` クラスの `transactRemote` メソッドと、`moe.shizuku.api.ShizukuBinderWrapper` クラスを参照してください。
 
 これにより、より高い権限でシステム API を使用するという目的を達成できます。アプリから見れば、システム API を直接使用する場合とほぼ同じです。
 
@@ -127,7 +127,7 @@ Apache 2.0 の第 6 条に基づく具体的な制限：
 
 * Shizuku 自体を表示する場合を除き、`manager/src/main/res/mipmap*/ic_launcher*.png` 画像ファイルの使用は**禁止**されています。
 
-* アプリ名に `Shevery` を使用すること、アプリケーション ID に `moe.shizuku.privileged.api` または `com.hamondev.shevery` を使用すること、および `moe.shizuku.manager.permission.*` 権限を宣言することは**禁止**されています。
+* アプリ名に `Shimika` を使用すること、アプリケーション ID に `moe.shizuku.privileged.api` または `com.owais.shimika` を使用すること、および `moe.shizuku.manager.permission.*` 権限を宣言することは**禁止**されています。
 
 ## クレジット
 

@@ -1,8 +1,8 @@
-# Shevery
+# Shimika (Android TV Port)
 
 <div align="center">
 
-[![Stars](https://img.shields.io/github/stars/HmnDev-Tech/shevery?style=for-the-badge&color=yellow)](https://github.com/HmnDev-Tech/shevery/stargazers) [![Forks](https://img.shields.io/github/forks/HmnDev-Tech/shevery?style=for-the-badge&color=orange)](https://github.com/HmnDev-Tech/shevery/network/members) [![Downloads](https://img.shields.io/github/downloads/HmnDev-Tech/shevery/total?style=for-the-badge&color=green)](https://github.com/HmnDev-Tech/shevery/releases) [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/hmndevtech)
+[![Stars](https://img.shields.io/github/stars/TheOwaisLone/Shimika?style=for-the-badge&color=yellow)](https://github.com/TheOwaisLone/Shimika/stargazers) [![Forks](https://img.shields.io/github/forks/TheOwaisLone/Shimika?style=for-the-badge&color=orange)](https://github.com/TheOwaisLone/Shimika/network/members) [![Downloads](https://img.shields.io/github/downloads/TheOwaisLone/Shimika/total?style=for-the-badge&color=green)](https://github.com/TheOwaisLone/Shimika/releases) [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/hmndevtech)
 
 </div>
 
@@ -11,7 +11,7 @@
 ## حالة الفرع (Fork)
 
 > [!IMPORTANT]
-> **يلزم إجراء الترحيل:** بسبب تغيير معرّف التطبيق (`moe.shizuku.privileged.api` -> `com.hamondev.shevery`)، يجب عليك **إلغاء تثبيت** أي نسخة رسمية قديمة من تطبيق Shizuku Manager من جهازك قبل تثبيت Shevery. وإلا سيحدث تعارض بينهما.
+> **يلزم إجراء الترحيل:** بسبب تغيير معرّف التطبيق (`moe.shizuku.privileged.api` -> `com.owais.shimika`)، يجب عليك **إلغاء تثبيت** أي نسخة رسمية قديمة من تطبيق Shizuku Manager من جهازك قبل تثبيت Shimika. وإلا سيحدث تعارض بينهما.
 > مرجع المشروع الأصلي: <https://github.com/RikkaApps/Shizuku>
 >
 
@@ -67,7 +67,7 @@
   </table>
 </details>
 
-## كيف يعمل Shevery؟
+## كيف يعمل Shimika؟
 
 أولًا، نحتاج إلى الحديث عن كيفية استخدام التطبيقات لواجهات النظام. على سبيل المثال، إذا أراد التطبيق الحصول على التطبيقات المثبتة، فنحن جميعًا نعلم أنه يجب استخدام `PackageManager#getInstalledPackages()`. وهذا في الواقع عملية اتصال بين العمليات (IPC) بين عملية التطبيق وعملية خادم النظام، فقط إطار عمل Android يتولى الأعمال الداخلية نيابة عنا.
 
@@ -77,7 +77,7 @@
 
 يرشد Shizuku المستخدمين إلى تشغيل عملية أولًا، وهي خادم Shizuku، بصلاحيات الجذر أو عبر ADB. وعندما يبدأ التطبيق، سيتم أيضًا إرسال `binder` الخاص بخادم Shizuku إلى التطبيق.
 
-أهم ميزة يقدمها Shevery هي العمل كوسيط يستقبل الطلبات من التطبيق ويرسلها إلى خادم النظام ثم يعيد النتائج. يمكنك الاطلاع على الطريقة `transactRemote` في الفئة `rikka.shizuku.server.ShizukuService`، والفئة `moe.shizuku.api.ShizukuBinderWrapper` للتفاصيل.
+أهم ميزة يقدمها Shimika هي العمل كوسيط يستقبل الطلبات من التطبيق ويرسلها إلى خادم النظام ثم يعيد النتائج. يمكنك الاطلاع على الطريقة `transactRemote` في الفئة `rikka.shizuku.server.ShizukuService`، والفئة `moe.shizuku.api.ShizukuBinderWrapper` للتفاصيل.
 
 وهكذا حققنا هدفنا، وهو استخدام واجهات النظام بصلاحيات أعلى. وبالنسبة للتطبيق، فالأمر مطابق تقريبًا لاستخدام واجهات النظام مباشرة.
 
@@ -148,4 +148,4 @@ https://github.com/RikkaApps/Shizuku-API#migration-guide-for-existing-applicatio
 > [!CAUTION]
 > **إشعار التطبيق المجاني**
 >
-> Shevery **تطبيق مجاني تمامًا**. لا تدفع لأي مدير ملفات خارجي أو خدمات سحابية لتنزيل هذا التطبيق.
+> Shimika **تطبيق مجاني تمامًا**. لا تدفع لأي مدير ملفات خارجي أو خدمات سحابية لتنزيل هذا التطبيق.

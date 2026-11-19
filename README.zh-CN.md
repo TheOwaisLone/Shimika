@@ -1,11 +1,11 @@
-# Shevery
+# Shimika (Android TV Port)
 
 [English](README.md) | [Русский](README.ru.md) | [Қазақша](README.kk.md) | [Qazaqşa (Latın)](README.kk-Latn.md) | [Português](README.pt.md) | [Español](README.es.md) | [العربية](README.ar.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md)
 
 ## 分支状态
 
 > [!IMPORTANT]
-> **支持并存安装：** 得益于独立的包 ID（`com.hamondev.shevery`）和隔离的权限命名空间，你**现在可以直接将 Shevery 与其他 Shizuku 实现并存安装**，无需事先卸载它们。对于会显式检查 `moe.shizuku.privileged.api` 的旧版应用，可以在移除原版 Shizuku 后，选择性地在设置中启用兼容性存根。
+> **支持并存安装：** 得益于独立的包 ID（`com.owais.shimika`）和隔离的权限命名空间，你**现在可以直接将 Shimika 与其他 Shizuku 实现并存安装**，无需事先卸载它们。对于会显式检查 `moe.shizuku.privileged.api` 的旧版应用，可以在移除原版 Shizuku 后，选择性地在设置中启用兼容性存根。
 上游项目参考：<https://github.com/RikkaApps/Shizuku>
 >
 
@@ -21,7 +21,7 @@
 
 ## 文档
 
-- [Shevery Wiki](https://github.com/HmnDev-Tech/shevery/wiki)
+- [Shimika Wiki](https://github.com/TheOwaisLone/Shimika/wiki)
 - [Comput AI 智能体指南](docs/comput-agent.md)
 - [Device Owner 与 Profile Owner 指南](docs/device-owner.md)
 - [隐身版本与兼容性存根 (Stubs)](docs/stealth-and-stubs.md)
@@ -55,7 +55,7 @@ Shizuku 采用了完全不同的方式。请参阅下方的详细说明。
 > [!CAUTION]
 > **官方免费应用声明**
 >
-> Shevery 是一款**完全免费的应用 (App)**。请勿在任何第三方网盘或付费文件管理器中购买或付费下载本应用，切勿上当受骗！
+> Shimika 是一款**完全免费的应用 (App)**。请勿在任何第三方网盘或付费文件管理器中购买或付费下载本应用，切勿上当受骗！
 
 ## 截图
 
@@ -74,7 +74,7 @@ Shizuku 采用了完全不同的方式。请参阅下方的详细说明。
   </table>
 </details>
 
-## Shevery 如何工作？
+## Shimika (Android TV Port) 如何工作？
 
 首先，我们需要了解应用如何使用系统 API。例如，如果应用需要获取已安装的应用，我们都知道应该使用 `PackageManager#getInstalledPackages()`。这实际上是应用进程和系统服务器进程之间的进程间通信（IPC）过程，只不过 Android 框架替我们完成了内部工作。
 
@@ -84,7 +84,7 @@ Android 使用 `binder` 执行这种 IPC。`Binder` 允许服务端获知客户�
 
 Shizuku 会引导用户先通过 root 或 ADB 运行一个进程，即 Shizuku 服务端。应用启动时，Shizuku 服务端的 `binder` 也会被发送给应用。
 
-Shevery 提供的最重要功能类似于充当中间人：接收应用的请求，将请求发送给系统服务器，再把结果返回。详情可参阅 `rikka.shizuku.server.ShizukuService` 类中的 `transactRemote` 方法，以及 `moe.shizuku.api.ShizukuBinderWrapper` 类。
+Shimika 提供的最重要功能类似于充当中间人：接收应用的请求，将请求发送给系统服务器，再把结果返回。详情可参阅 `rikka.shizuku.server.ShizukuService` 类中的 `transactRemote` 方法，以及 `moe.shizuku.api.ShizukuBinderWrapper` 类。
 
 这样，我们就实现了以更高权限使用系统 API 的目标。对于应用而言，这与直接使用系统 API 几乎完全相同。
 
@@ -139,11 +139,11 @@ https://github.com/RikkaApps/Shizuku-API#migration-guide-for-existing-applicatio
 
 * **禁止**使用 `manager/src/main/res/mipmap*/ic_launcher*.png` 图像文件，除非用于展示 Shizuku 本身。
 
-* **禁止**将 `Shevery` 用作应用名称、将 `moe.shizuku.privileged.api` 或 `com.hamondev.shevery` 用作应用 ID，或声明 `moe.shizuku.manager.permission.*` 权限。
+* **禁止**将 `Shimika` 用作应用名称、将 `moe.shizuku.privileged.api` 或 `com.owais.shimika` 用作应用 ID，或声明 `moe.shizuku.manager.permission.*` 权限。
 
 ## 致谢
 
 * [Nightzuku](https://github.com/kerneldroid/Nightzuku) - 提供了部分应用界面、模块目录系统和 Android 17 支持。
 * [Shizuku](https://github.com/rikkaapps/Shizuku) - 提供了 Shizuku API 和主要源代码。
 
-### 不建议在第三方文件管理器和网站上安装 Shevery，最好去 GitHub 下载。
+### 不建议在第三方文件管理器和网站上安装 Shimika，最好去 GitHub 下载。
