@@ -1,8 +1,8 @@
-# Shevery
+# Shimika (Android TV Port)
 
 <div align="center">
 
-[![Stars](https://img.shields.io/github/stars/HmnDev-Tech/shevery?style=for-the-badge&color=yellow)](https://github.com/HmnDev-Tech/shevery/stargazers) [![Forks](https://img.shields.io/github/forks/HmnDev-Tech/shevery?style=for-the-badge&color=orange)](https://github.com/HmnDev-Tech/shevery/network/members) [![Downloads](https://img.shields.io/github/downloads/HmnDev-Tech/shevery/total?style=for-the-badge&color=green)](https://github.com/HmnDev-Tech/shevery/releases) [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/hmndevtech)
+[![Stars](https://img.shields.io/github/stars/TheOwaisLone/Shimika?style=for-the-badge&color=yellow)](https://github.com/TheOwaisLone/Shimika/stargazers) [![Forks](https://img.shields.io/github/forks/TheOwaisLone/Shimika?style=for-the-badge&color=orange)](https://github.com/TheOwaisLone/Shimika/network/members) [![Downloads](https://img.shields.io/github/downloads/TheOwaisLone/Shimika/total?style=for-the-badge&color=green)](https://github.com/TheOwaisLone/Shimika/releases) [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/hmndevtech)
 
 </div>
 
@@ -11,7 +11,7 @@
 ## Estado del fork
 
 > [!IMPORTANT]
-> **Acción de migración requerida:** debido al cambio del identificador de la app (`moe.shizuku.privileged.api` -> `com.hamondev.shevery`), **DEBES DESINSTALAR** cualquier versión antigua de la app oficial Shizuku Manager de tu dispositivo antes de instalar Shevery. De lo contrario, entrarán en conflicto.
+> **Acción de migración requerida:** debido al cambio del identificador de la app (`moe.shizuku.privileged.api` -> `com.owais.shimika`), **DEBES DESINSTALAR** cualquier versión antigua de la app oficial Shizuku Manager de tu dispositivo antes de instalar Shimika. De lo contrario, entrarán en conflicto.
 > Referencia del proyecto original: <https://github.com/RikkaApps/Shizuku>
 >
 
@@ -67,7 +67,7 @@ Shizuku utiliza un enfoque completamente distinto. Ver la descripción detallada
   </table>
 </details>
 
-## ¿Cómo funciona Shevery?
+## ¿Cómo funciona Shimika?
 
 Primero, tenemos que hablar de cómo las apps usan las API del sistema. Por ejemplo, si la app quiere obtener las apps instaladas, todos sabemos que debe usar `PackageManager#getInstalledPackages()`. En realidad se trata de un proceso de comunicación entre procesos (IPC) del proceso de la app con el proceso del servidor del sistema; el framework de Android simplemente hace el trabajo interno por nosotros.
 
@@ -77,7 +77,7 @@ Normalmente, si existe un «gestor» (por ejemplo, `PackageManager`) para que lo
 
 Shizuku guía a los usuarios para que ejecuten primero un proceso, el servidor Shizuku, con root o ADB. Cuando la app se inicia, el `binder` del servidor Shizuku también se envía a la app.
 
-La función más importante que ofrece Shevery es actuar como intermediario: recibir las solicitudes de la app, enviarlas al servidor del sistema y devolver los resultados. Pueden ver el método `transactRemote` en la clase `rikka.shizuku.server.ShizukuService` y la clase `moe.shizuku.api.ShizukuBinderWrapper` para más detalles.
+La función más importante que ofrece Shimika es actuar como intermediario: recibir las solicitudes de la app, enviarlas al servidor del sistema y devolver los resultados. Pueden ver el método `transactRemote` en la clase `rikka.shizuku.server.ShizukuService` y la clase `moe.shizuku.api.ShizukuBinderWrapper` para más detalles.
 
 Así alcanzamos nuestro objetivo: usar las API del sistema con permisos más altos. Y, para la app, es casi idéntico al uso directo de las API del sistema.
 
@@ -148,4 +148,4 @@ Sigan estos pasos:
 > [!CAUTION]
 > **Aviso de app gratuita**
 >
-> Shevery es una app **completamente gratuita**. No paguen a gestores de archivos de terceros ni a servicios en la nube para descargar esta aplicación.
+> Shimika es una app **completamente gratuita**. No paguen a gestores de archivos de terceros ni a servicios en la nube para descargar esta aplicación.

@@ -1,8 +1,8 @@
-# Shevery
+# Shimika (Android TV Port)
 
 <div align="center">
 
-[![Stars](https://img.shields.io/github/stars/HmnDev-Tech/shevery?style=for-the-badge&color=yellow)](https://github.com/HmnDev-Tech/shevery/stargazers) [![Forks](https://img.shields.io/github/forks/HmnDev-Tech/shevery?style=for-the-badge&color=orange)](https://github.com/HmnDev-Tech/shevery/network/members) [![Downloads](https://img.shields.io/github/downloads/HmnDev-Tech/shevery/total?style=for-the-badge&color=green)](https://github.com/HmnDev-Tech/shevery/releases) [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/hmndevtech)
+[![Stars](https://img.shields.io/github/stars/TheOwaisLone/Shimika?style=for-the-badge&color=yellow)](https://github.com/TheOwaisLone/Shimika/stargazers) [![Forks](https://img.shields.io/github/forks/TheOwaisLone/Shimika?style=for-the-badge&color=orange)](https://github.com/TheOwaisLone/Shimika/network/members) [![Downloads](https://img.shields.io/github/downloads/TheOwaisLone/Shimika/total?style=for-the-badge&color=green)](https://github.com/TheOwaisLone/Shimika/releases) [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/hmndevtech)
 
 </div>
 
@@ -11,7 +11,7 @@
 ## Fork märtebesi
 
 > [!IMPORTANT]
-> **Köşu äreketi qajet:** Qosımşa tañbasınıñ özgéruine baylanıstı (`moe.shizuku.privileged.api` -> `com.hamondev.shevery`) Shevery-di ornatpas burın quraldağı eski resmi Shizuku Manager qosımşasın **MİNDETTİ TÜRDE ÖŞİRİÑİZ**. Öytpese, olar bir-birimen qayşılıqqa tüsep qaladı.
+> **Köşu äreketi qajet:** Qosımşa tañbasınıñ özgéruine baylanıstı (`moe.shizuku.privileged.api` -> `com.owais.shimika`) Shimika-di ornatpas burın quraldağı eski resmi Shizuku Manager qosımşasın **MİNDETTİ TÜRDE ÖŞİRİÑİZ**. Öytpese, olar bir-birimen qayşılıqqa tüsep qaladı.
 > Joğarğı joba siltemesi: <https://github.com/RikkaApps/Shizuku>
 >
 
@@ -67,7 +67,7 @@ Shizuku müldem basqa joldı qoldanadı. Tolıq sipattamanı tömenden qarañız
   </table>
 </details>
 
-## Shevery qalayı jūmıs isteydi?
+## Shimika (Android TV Port) qalayı jūmıs isteydi?
 
 Aldımen, qosımşalardıñ jüyelik API-di qalayı qoldanatıñın aytıp öteyik. Mısalı, qosımşa ornаtılğan qosımşalardı alğıısı kelse, `PackageManager#getInstalledPackages()` qoldanu kerek ekenin bärimiz bilemiz. Negizinde bul — qosımşa procesi men jüyelik server procesi arasındağı procesaralıq baylanıs (IPC), tek Android freymvorki işki jūmıstı biz üşin atqaradı.
 
@@ -77,7 +77,7 @@ Android bunday IPC üşin `binder`-di qoldanadı. `Binder` server jaqqa klient j
 
 Shizuku paydalanuşığa aldın ala bir procesti — Shizuku serverin — root nemese ADB arqılı iske qosuğa nusqaydı. Qosımşa iske qosılğanda Shizuku serverine arnalğan `binder` de qosımşağa jiberiledi.
 
-Shevery-diñ eñ mağızdı mümkinşiligі — deldal bolu: qosımşadan sўranılardı qabıldap, olardı jüyelik serverge jiberip, nätijeni qaytaradı. Tolığıraq `rikka.shizuku.server.ShizukuService` klasındağı `transactRemote` ädisinen jäne `moe.shizuku.api.ShizukuBinderWrapper` klasınan qarañız.
+Shimika-diñ eñ mağızdı mümkinşiligі — deldal bolu: qosımşadan sўranılardı qabıldap, olardı jüyelik serverge jiberip, nätijeni qaytaradı. Tolığıraq `rikka.shizuku.server.ShizukuService` klasındağı `transactRemote` ädisinen jäne `moe.shizuku.api.ShizukuBinderWrapper` klasınan qarañız.
 
 Söytil, biz joğarı qūqıqpen jüyelik API qoldanu mağsatına jettik. Al qosımşağa bul — jüyelik API-di tikeley qoldanğanmen birdey.
 
@@ -115,7 +115,7 @@ https://github.com/RikkaApps/Shizuku-API#migration-guide-for-existing-applicatio
 
    * `SystemServiceHelper.getTransactionCode` dūrıs tranzaksiya kodın ala almauı mümkin, mısalı API 25-te `android.content.pm.IPackageManager$Stub.TRANSACTION_getInstalledPackages` joq, onıñ ornına `android.content.pm.IPackageManager$Stub.TRANSACTION_getInstalledPackages_47` bar (bul jağday öñdelgen, biraq basqa jağdaylar da boluı mümkin). `ShizukuBinderWrapper` ädisinde bul mäsele kezdespeydi.
 
-## Shevery-diñ özin äzirleu
+## Shimika (Android TV Port)-diñ özin äzirleu
 
 ### Jinau
 
@@ -148,4 +148,4 @@ Mına qadamdardı orındañız:
 > [!CAUTION]
 > **Tegin qosımşa turalı xabarlama**
 >
-> Shevery — **toluğımen tegin qosımşa**. Bul qosımşanı jükteu üşin üşinşi jaq fayl menedjerlerine nemese bulttıq qızmetterge aqşa tölemeñiz.
+> Shimika — **toluğımen tegin qosımşa**. Bul qosımşanı jükteu üşin üşinşi jaq fayl menedjerlerine nemese bulttıq qızmetterge aqşa tölemeñiz.

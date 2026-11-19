@@ -1,8 +1,8 @@
-# Shevery
+# Shimika (Android TV Port)
 
 <div align="center">
 
-[![Stars](https://img.shields.io/github/stars/HmnDev-Tech/shevery?style=for-the-badge&color=yellow)](https://github.com/HmnDev-Tech/shevery/stargazers) [![Forks](https://img.shields.io/github/forks/HmnDev-Tech/shevery?style=for-the-badge&color=orange)](https://github.com/HmnDev-Tech/shevery/network/members) [![Downloads](https://img.shields.io/github/downloads/HmnDev-Tech/shevery/total?style=for-the-badge&color=green)](https://github.com/HmnDev-Tech/shevery/releases) [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/hmndevtech)
+[![Stars](https://img.shields.io/github/stars/TheOwaisLone/Shimika?style=for-the-badge&color=yellow)](https://github.com/TheOwaisLone/Shimika/stargazers) [![Forks](https://img.shields.io/github/forks/TheOwaisLone/Shimika?style=for-the-badge&color=orange)](https://github.com/TheOwaisLone/Shimika/network/members) [![Downloads](https://img.shields.io/github/downloads/TheOwaisLone/Shimika/total?style=for-the-badge&color=green)](https://github.com/TheOwaisLone/Shimika/releases) [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/hmndevtech)
 
 </div>
 
@@ -11,7 +11,7 @@
 ## Estado do fork
 
 > [!IMPORTANT]
-> **Ação de migração necessária:** devido à alteração do identificador do app (`moe.shizuku.privileged.api` -> `com.hamondev.shevery`), você **DEVE DESINSTALAR** qualquer versão antiga do app oficial Shizuku Manager do seu dispositivo antes de instalar o Shevery. Caso contrário, eles entrarão em conflito.
+> **Ação de migração necessária:** devido à alteração do identificador do app (`moe.shizuku.privileged.api` -> `com.owais.shimika`), você **DEVE DESINSTALAR** qualquer versão antiga do app oficial Shizuku Manager do seu dispositivo antes de instalar o Shimika. Caso contrário, eles entrarão em conflito.
 > Referência do projeto original: <https://github.com/RikkaApps/Shizuku>
 >
 
@@ -67,7 +67,7 @@ O Shizuku usa uma abordagem completamente diferente. Veja a descrição detalhad
   </table>
 </details>
 
-## Como o Shevery funciona?
+## Como o Shimika funciona?
 
 Primeiro, precisamos falar sobre como os apps usam as APIs do sistema. Por exemplo, se o app quiser obter os apps instalados, todos sabemos que devemos usar `PackageManager#getInstalledPackages()`. Na verdade, isso é um processo de comunicação entre processos (IPC) do processo do app com o processo do servidor do sistema; o framework Android apenas faz o trabalho interno por nós.
 
@@ -77,7 +77,7 @@ Normalmente, se existe um «gerenciador» (por exemplo, `PackageManager`) para o
 
 O Shizuku orienta os usuários a executar primeiro um processo, o servidor Shizuku, com root ou ADB. Quando o app inicia, o `binder` do servidor Shizuku também é enviado ao app.
 
-O recurso mais importante que o Shevery oferece é atuar como intermediário: receber solicitações do app, enviá-las ao servidor do sistema e devolver os resultados. Veja o método `transactRemote` na classe `rikka.shizuku.server.ShizukuService` e a classe `moe.shizuku.api.ShizukuBinderWrapper` para mais detalhes.
+O recurso mais importante que o Shimika oferece é atuar como intermediário: receber solicitações do app, enviá-las ao servidor do sistema e devolver os resultados. Veja o método `transactRemote` na classe `rikka.shizuku.server.ShizukuService` e a classe `moe.shizuku.api.ShizukuBinderWrapper` para mais detalhes.
 
 Assim, alcançamos nosso objetivo: usar as APIs do sistema com permissões mais altas. E, para o app, é quase idêntico ao uso direto das APIs do sistema.
 
@@ -148,4 +148,4 @@ Siga estes passos:
 > [!CAUTION]
 > **Aviso de app gratuito**
 >
-> O Shevery é um app **totalmente gratuito**. Não pague a gerenciadores de arquivos de terceiros nem a serviços de nuvem para baixar este aplicativo.
+> O Shimika é um app **totalmente gratuito**. Não pague a gerenciadores de arquivos de terceiros nem a serviços de nuvem para baixar este aplicativo.

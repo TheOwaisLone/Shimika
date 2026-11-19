@@ -1,8 +1,8 @@
-# Shevery
+# Shimika (Android TV Port)
 
 <div align="center">
 
-[![Stars](https://img.shields.io/github/stars/HmnDev-Tech/shevery?style=for-the-badge&color=yellow)](https://github.com/HmnDev-Tech/shevery/stargazers) [![Forks](https://img.shields.io/github/forks/HmnDev-Tech/shevery?style=for-the-badge&color=orange)](https://github.com/HmnDev-Tech/shevery/network/members) [![Downloads](https://img.shields.io/github/downloads/HmnDev-Tech/shevery/total?style=for-the-badge&color=green)](https://github.com/HmnDev-Tech/shevery/releases) [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/hmndevtech)
+[![Stars](https://img.shields.io/github/stars/TheOwaisLone/Shimika?style=for-the-badge&color=yellow)](https://github.com/TheOwaisLone/Shimika/stargazers) [![Forks](https://img.shields.io/github/forks/TheOwaisLone/Shimika?style=for-the-badge&color=orange)](https://github.com/TheOwaisLone/Shimika/network/members) [![Downloads](https://img.shields.io/github/downloads/TheOwaisLone/Shimika/total?style=for-the-badge&color=green)](https://github.com/TheOwaisLone/Shimika/releases) [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/hmndevtech)
 
 </div>
 
@@ -11,7 +11,7 @@
 ## Форк мәртебесі
 
 > [!IMPORTANT]
-> **Көшу әрекеті қажет:** Қосымша таңбасының өзгеруіне байланысты (`moe.shizuku.privileged.api` -> `com.hamondev.shevery`) Shevery-ді орнатпас бұрын құралдағы ескі ресми Shizuku Manager қосымшасын **МІНДЕТТІ ТҮРДЕ ӨШІРІҢІЗ**. Өйтпесе, олар бір-бірімен қайшылыққа түсіп қалады.
+> **Көшу әрекеті қажет:** Қосымша таңбасының өзгеруіне байланысты (`moe.shizuku.privileged.api` -> `com.owais.shimika`) Shimika-ді орнатпас бұрын құралдағы ескі ресми Shizuku Manager қосымшасын **МІНДЕТТІ ТҮРДЕ ӨШІРІҢІЗ**. Өйтпесе, олар бір-бірімен қайшылыққа түсіп қалады.
 > Жоғарғы жоба сілтемесі: <https://github.com/RikkaApps/Shizuku>
 >
 
@@ -67,7 +67,7 @@ Shizuku мүлдем басқа жолды қолданады. Толық сип
   </table>
 </details>
 
-## Shevery қалай жұмыс істейді?
+## Shimika (Android TV Port) қалай жұмыс істейді?
 
 Алдымен, қосымшалардың жүйелік API-ді қалай қолданатынын айтып өтейік. Мысалы, қосымша орнатылған қосымшаларды алғысы келсе, `PackageManager#getInstalledPackages()` қолдану керек екенін бәріміз білеміз. Негізінде бұл — қосымша процесі мен жүйелік сервер процесі арасындағы процесаралық байланыс (IPC), тек Android фреймворкі ішкі жұмысты біз үшін атқарады.
 
@@ -77,7 +77,7 @@ Android мұндай IPC үшін `binder`-ді қолданады. `Binder` с�
 
 Shizuku пайдаланушыға алдын ала бір процесті — Shizuku серверін — root немесе ADB арқылы іске қосуға нұсқайды. Қосымша іске қосылғанда Shizuku серверіне арналған `binder` де қосымшаға жіберіледі.
 
-Shevery-дің ең маңызды мүмкіншілігі — делдал болу: қосымшадан сұраныларды қабылдап, оларды жүйелік серверге жіберіп, нәтижені қайтарады. Толығырақ `rikka.shizuku.server.ShizukuService` класындағы `transactRemote` әдісінен және `moe.shizuku.api.ShizukuBinderWrapper` класынан қараңыз.
+Shimika-дің ең маңызды мүмкіншілігі — делдал болу: қосымшадан сұраныларды қабылдап, оларды жүйелік серверге жіберіп, нәтижені қайтарады. Толығырақ `rikka.shizuku.server.ShizukuService` класындағы `transactRemote` әдісінен және `moe.shizuku.api.ShizukuBinderWrapper` класынан қараңыз.
 
 Сөйтіп, біз жоғары құқықпен жүйелік API қолдану мақсатына жеттік. Ал қосымшаға бұл — жүйелік API-ді тікелей қолданғанмен бірдей.
 
@@ -115,7 +115,7 @@ https://github.com/RikkaApps/Shizuku-API#migration-guide-for-existing-applicatio
 
    * `SystemServiceHelper.getTransactionCode` дұрыс транзакция кодын ала алмауы мүмкін, мысалы API 25-те `android.content.pm.IPackageManager$Stub.TRANSACTION_getInstalledPackages` жоқ, оның орнына `android.content.pm.IPackageManager$Stub.TRANSACTION_getInstalledPackages_47` бар (бұл жағдай өңделген, бірақ басқа жағдайлар да болуы мүмкін). `ShizukuBinderWrapper` әдісінде бұл мәселе кездеспейді.
 
-## Shevery-дің өзін әзірлеу
+## Shimika (Android TV Port)-дің өзін әзірлеу
 
 ### Жинау
 
@@ -148,4 +148,4 @@ https://github.com/RikkaApps/Shizuku-API#migration-guide-for-existing-applicatio
 > [!CAUTION]
 > **Тегін қосымша туралы хабарлама**
 >
-> Shevery — **толығымен тегін қосымша**. Бұл қосымшаны жүктеу үшін үшінші жақ файл менеджерлеріне немесе бұлттық қызметтерге ақша төлемеңіз.
+> Shimika — **толығымен тегін қосымша**. Бұл қосымшаны жүктеу үшін үшінші жақ файл менеджерлеріне немесе бұлттық қызметтерге ақша төлемеңіз.

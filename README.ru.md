@@ -1,8 +1,8 @@
-# Shevery
+# Shimika (Android TV Port)
 
 <div align="center">
 
-[![Stars](https://img.shields.io/github/stars/HmnDev-Tech/shevery?style=for-the-badge&color=yellow)](https://github.com/HmnDev-Tech/shevery/stargazers) [![Forks](https://img.shields.io/github/forks/HmnDev-Tech/shevery?style=for-the-badge&color=orange)](https://github.com/HmnDev-Tech/shevery/network/members) [![Downloads](https://img.shields.io/github/downloads/HmnDev-Tech/shevery/total?style=for-the-badge&color=green)](https://github.com/HmnDev-Tech/shevery/releases) [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/hmndevtech)
+[![Stars](https://img.shields.io/github/stars/TheOwaisLone/Shimika?style=for-the-badge&color=yellow)](https://github.com/TheOwaisLone/Shimika/stargazers) [![Forks](https://img.shields.io/github/forks/TheOwaisLone/Shimika?style=for-the-badge&color=orange)](https://github.com/TheOwaisLone/Shimika/network/members) [![Downloads](https://img.shields.io/github/downloads/TheOwaisLone/Shimika/total?style=for-the-badge&color=green)](https://github.com/TheOwaisLone/Shimika/releases) [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/hmndevtech)
 
 </div>
 
@@ -11,7 +11,7 @@
 ## Статус форка
 
 > [!IMPORTANT]
-> **Требуется действие по миграции:** из-за смены идентификатора приложения (`moe.shizuku.privileged.api` -> `com.hamondev.shevery`) вы **ДОЛЖНЫ УДАЛИТЬ** старое официальное приложение Shizuku Manager с устройства перед установкой Shevery. Иначе они будут конфликтовать.
+> **Требуется действие по миграции:** из-за смены идентификатора приложения (`moe.shizuku.privileged.api` -> `com.owais.shimika`) вы **ДОЛЖНЫ УДАЛИТЬ** старое официальное приложение Shizuku Manager с устройства перед установкой Shimika. Иначе они будут конфликтовать.
 > Апстрим-проект: <https://github.com/RikkaApps/Shizuku>
 >
 
@@ -29,7 +29,7 @@
 
 ## Документация
 
-- [Shevery Wiki](https://github.com/HmnDev-Tech/shevery/wiki)
+- [Shimika Wiki](https://github.com/TheOwaisLone/Shimika/wiki)
 - [Руководство по ИИ-агенту Comput](docs/comput-agent.md)
 - [Руководство по Device Owner и Profile Owner](docs/device-owner.md)
 - [Stealth-версия и заглушки совместимости (Stubs)](docs/stealth-and-stubs.md)
@@ -76,7 +76,7 @@ Shizuku использует совершенно другой подход. П�
   </table>
 </details>
 
-## Как работает Shevery?
+## Как работает Shimika?
 
 Сначала нужно поговорить о том, как приложения используют системные API. Например, если приложение хочет получить список установленных приложений, мы все знаем, что нужно использовать `PackageManager#getInstalledPackages()`. На самом деле это межпроцессное взаимодействие (IPC) процесса приложения и процесса системного сервера, просто Android-фреймворк берёт внутреннюю работу на себя.
 
@@ -86,7 +86,7 @@ Android использует `binder` для такого IPC. `Binder` позв
 
 Shizuku предлагает пользователю сначала запустить процесс — сервер Shizuku — с правами root или через ADB. Когда приложение запускается, `binder` сервера Shizuku также передаётся приложению.
 
-Самая важная возможность, которую предоставляет Shevery, — быть посредником: принимать запросы от приложения, отправлять их системному серверу и возвращать результаты. Подробности смотрите в методе `transactRemote` класса `rikka.shizuku.server.ShizukuService` и в классе `moe.shizuku.api.ShizukuBinderWrapper`.
+Самая важная возможность, которую предоставляет Shimika, — быть посредником: принимать запросы от приложения, отправлять их системному серверу и возвращать результаты. Подробности смотрите в методе `transactRemote` класса `rikka.shizuku.server.ShizukuService` и в классе `moe.shizuku.api.ShizukuBinderWrapper`.
 
 Таким образом мы достигли цели — использовать системные API с повышенными правами. А для приложения это почти неотличимо от прямого использования системных API.
 
@@ -140,7 +140,7 @@ https://github.com/RikkaApps/Shizuku-API#migration-guide-for-existing-applicatio
 ## Благодарности
 
 * [kerneldroid](https://github.com/kerneldroid) — за части интерфейса приложения, систему каталога модулей и поддержку Android 17.
-* [iamr0s/Dhizuku](https://github.com/iamr0s/Dhizuku) — за проект Dhizuku, архитектуру и концепции Device Owner, интегрированные в Shevery.
+* [iamr0s/Dhizuku](https://github.com/iamr0s/Dhizuku) — за проект Dhizuku, архитектуру и концепции Device Owner, интегрированные в Shimika.
 * [RikkaApps/Shizuku](https://github.com/rikkaapps/Shizuku) — за Shizuku API и основные исходники.
 * [Landon Moran](https://github.com/LandonMoran) — за Dhizuku, исправления TCP и др.
 * [DP-Hridayan](https://github.com/DP-Hridayan/aShellYou) — за части интерфейса «Comput».
@@ -158,4 +158,4 @@ https://github.com/RikkaApps/Shizuku-API#migration-guide-for-existing-applicatio
 > [!CAUTION]
 > **Уведомление о бесплатности приложения**
 >
-> Shevery — **полностью бесплатное приложение**. Не платите сторонним файловым менеджерам или облачным сервисам за загрузку этого приложения.
+> Shimika — **полностью бесплатное приложение**. Не платите сторонним файловым менеджерам или облачным сервисам за загрузку этого приложения.
