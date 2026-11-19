@@ -8,7 +8,7 @@ object ServerConstants {
     const val MANAGER_APP_NOT_FOUND = 50
     const val MANAGER_APP_LOOKUP_UNAVAILABLE = 51
 
-    const val MANAGER_APPLICATION_ID = SheveryApiConstants.MANAGER_APPLICATION_ID
+    const val MANAGER_APPLICATION_ID = "com.owais.shimika"
     const val SHIZUKU_STUB_APPLICATION_ID = SheveryApiConstants.SHIZUKU_STUB_APPLICATION_ID
 
     // Primary Shevery Privilege API permissions

@@ -17,7 +17,7 @@ const EXIT_MANAGER_APP_NOT_FOUND: i32 = 50;
 const EXIT_MANAGER_APP_LOOKUP_UNAVAILABLE: i32 = 51;
 const STABLE_UPTIME_RESET_SECS: u64 = 60;
 
-const PACKAGE_NAME: &str = "com.hamondev.shevery";
+const PACKAGE_NAME: &str = "com.owais.shimika";
 const SERVER_NAME: &str = "shizuku_server";
 const SERVER_CLASS_PATH: &str = "rikka.shizuku.server.ShizukuService";
 
