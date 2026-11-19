@@ -160,6 +160,9 @@ import moe.shizuku.manager.utils.EnvironmentUtils
 import moe.shizuku.manager.utils.UserHandleCompat
 import moe.shizuku.manager.ui.compose.ExpressiveFloatingNavigationBar
 import moe.shizuku.manager.ui.compose.RefreshedNavigationBar
+import moe.shizuku.manager.ui.compose.TvNavigationRail
+import moe.shizuku.manager.ui.compose.tvFocusHighlight
+import moe.shizuku.manager.ui.compose.onDpadCenterOrEnter
 import moe.shizuku.manager.ui.compose.MonospaceLog
 import moe.shizuku.manager.ui.compose.NavItem
 import rikka.core.util.ClipboardUtils
@@ -537,7 +540,13 @@ abstract class HomeActivity : AppActivity() {
                         Scaffold(
                         contentWindowInsets = WindowInsets(0.dp)
                     ) { innerPadding ->
-                    Box(modifier = Modifier.padding(innerPadding).fillMaxSize()) {
+                        val isTvDevice = moe.shizuku.manager.utils.EnvironmentUtils.isTelevision()
+                        val contentPadding = if (isTvDevice) {
+                            Modifier.padding(innerPadding).padding(start = 110.dp).fillMaxSize()
+                        } else {
+                            Modifier.padding(innerPadding).fillMaxSize()
+                        }
+                        Box(modifier = contentPadding) {
                         val pagerState = rememberPagerState(
                             initialPage = selectedTab.coerceIn(0, 3),
                             pageCount = { 4 }
@@ -744,7 +753,16 @@ abstract class HomeActivity : AppActivity() {
                     NavItem(stringResource(R.string.settings_title), Icons.Rounded.Settings)
                 )
 
-                if (useClassicNav) {
+                val isTvDevice = moe.shizuku.manager.utils.EnvironmentUtils.isTelevision()
+
+                if (isTvDevice) {
+                    TvNavigationRail(
+                        items = navItems,
+                        selectedIndex = selectedTab,
+                        onItemSelected = { selectedTab = it },
+                        modifier = Modifier.align(Alignment.CenterStart)
+                    )
+                } else if (useClassicNav) {
                     RefreshedNavigationBar(
                         items = navItems,
                         selectedIndex = selectedTab,
@@ -2364,7 +2382,13 @@ private fun HomeCard(
     content: @Composable () -> Unit = {}
 ) {
     val clickableModifier = if (onClick != null) {
-        Modifier.clickable(enabled = enabled, onClick = onClick)
+        Modifier
+            .tvFocusHighlight(
+                shape = MaterialTheme.shapes.extraLarge,
+                focusedScale = 1.02f
+            )
+            .clickable(enabled = enabled, onClick = onClick)
+            .onDpadCenterOrEnter { if (enabled) onClick() }
     } else {
         Modifier
     }
