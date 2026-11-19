@@ -585,7 +585,13 @@ fun ExpressiveCard(
     content: @Composable () -> Unit = {}
 ) {
     val clickableModifier = if (onClick != null) {
-        Modifier.clickable(enabled = enabled, onClick = onClick)
+        Modifier
+            .tvFocusHighlight(
+                shape = RoundedCornerShape(12.dp),
+                focusedScale = 1.02f
+            )
+            .clickable(enabled = enabled, onClick = onClick)
+            .onDpadCenterOrEnter { if (enabled) onClick() }
     } else {
         Modifier
     }
@@ -694,7 +700,13 @@ fun SettingsRow(
     trailing: @Composable (() -> Unit)? = null
 ) {
     val clickableModifier = if (onClick != null) {
-        Modifier.clickable(enabled = enabled, onClick = onClick)
+        Modifier
+            .tvFocusHighlight(
+                shape = RoundedCornerShape(12.dp),
+                focusedScale = 1.02f
+            )
+            .clickable(enabled = enabled, onClick = onClick)
+            .onDpadCenterOrEnter { if (enabled) onClick() }
     } else {
         Modifier
     }
