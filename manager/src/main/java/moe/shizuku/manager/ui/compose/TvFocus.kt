@@ -7,16 +7,31 @@ import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.focusable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.focus.FocusRequester
@@ -133,47 +148,47 @@ fun TvNavigationRail(
     onItemSelected: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    androidx.compose.foundation.layout.Column(
+    Column(
         modifier = modifier
-            .androidx.compose.foundation.layout.width(110.dp)
-            .androidx.compose.foundation.layout.fillMaxHeight()
-            .androidx.compose.foundation.background(MaterialTheme.colorScheme.surfaceContainer)
-            .androidx.compose.foundation.layout.padding(vertical = 24.dp, horizontal = 12.dp),
-        horizontalAlignment = androidx.compose.ui.Alignment.CenterVertically,
-        verticalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(16.dp)
+            .width(110.dp)
+            .fillMaxHeight()
+            .background(MaterialTheme.colorScheme.surfaceContainer)
+            .padding(vertical = 24.dp, horizontal = 12.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         items.forEachIndexed { index, item ->
             val isSelected = index == selectedIndex
-            androidx.compose.foundation.layout.Box(
+            Box(
                 modifier = Modifier
-                    .androidx.compose.foundation.layout.fillMaxWidth()
-                    .androidx.compose.foundation.layout.height(72.dp)
+                    .fillMaxWidth()
+                    .height(72.dp)
                     .tvFocusHighlight(
                         shape = RoundedCornerShape(12.dp),
                         focusedScale = 1.05f,
                         focusedBorderColor = MaterialTheme.colorScheme.primary
                     )
-                    .androidx.compose.foundation.background(
+                    .background(
                         color = if (isSelected) MaterialTheme.colorScheme.primaryContainer else Color.Transparent,
                         shape = RoundedCornerShape(12.dp)
                     )
-                    .androidx.compose.foundation.clickable { onItemSelected(index) }
+                    .clickable { onItemSelected(index) }
                     .onDpadCenterOrEnter { onItemSelected(index) }
-                    .androidx.compose.foundation.layout.padding(8.dp),
-                contentAlignment = androidx.compose.ui.Alignment.Center
+                    .padding(8.dp),
+                contentAlignment = Alignment.Center
             ) {
-                androidx.compose.foundation.layout.Column(
-                    horizontalAlignment = androidx.compose.ui.Alignment.CenterVertically,
-                    verticalArrangement = androidx.compose.foundation.layout.Arrangement.Center
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
                 ) {
-                    androidx.compose.material3.Icon(
+                    Icon(
                         imageVector = item.icon,
                         contentDescription = item.title,
-                        modifier = Modifier.androidx.compose.foundation.layout.size(28.dp),
+                        modifier = Modifier.size(28.dp),
                         tint = if (isSelected) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.onSurfaceVariant
                     )
-                    androidx.compose.foundation.layout.Spacer(modifier = Modifier.androidx.compose.foundation.layout.height(4.dp))
-                    androidx.compose.material3.Text(
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
                         text = item.title,
                         style = MaterialTheme.typography.labelMedium,
                         color = if (isSelected) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.onSurfaceVariant,
